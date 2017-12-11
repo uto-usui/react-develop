@@ -1,0 +1,107 @@
+<%
+
+
+// default
+// - - - - - - - - - -
+
+if (page.title) {
+  var title = page.title + data.sepalate + data.title;
+} else {
+  var title = data.title;
+}
+if (page.ogp.image.length == 0) {
+  page.ogp.image = data.ogp.image;
+}
+if (page.ogp.type.length == 0) {
+  page.ogp.type = 'article';
+}
+
+
+
+%><!DOCTYPE html>
+<html lang="<%= data.lang %>">
+<head>
+  <!-- viewport -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- encoding -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><%#
+
+
+
+
+%><% if(data.author) { %>
+  <meta name="author" content="<%= data.author %>">
+  <% } %><%#
+
+
+
+%><!-- title description -->
+  <title><%= title %></title>
+  <meta name="description" content="<%= page.desc %>">
+  <!-- sp user agent function disable-->
+  <meta name="format-detection" content="telephone=no,address=no,email=no"><%#
+
+
+
+
+
+
+
+  %><% if(data.ogp.insert) {
+  %><!-- ogp -->
+  <meta name="twitter:title" content="<%= title %>">
+  <meta name="twitter:image" content="<%= page.ogp.image %>">
+  <meta name="twitter:card" content="summary_large_image"><%#
+
+
+
+    // twitter ID
+    <meta name="twitter:site" content="">
+    <meta property="twitter:account_id" content="">
+    // facebook ID
+    <meta property="fb:admins" content="">
+    <meta property="fb:app_id" content="">
+
+
+
+%><meta property="og:title" content="<%= title %>">
+  <meta property="og:description" content="<%= page.desc %>">
+  <meta property="og:url" content="<%= path.ab %>">
+  <meta property="og:image" content="<%= page.ogp.image %>">
+  <meta property="og:type" content="<%= page.ogp.type %>">
+  <meta property="og:site_name" content="<%= data.title %>">
+  <% } %><%#
+
+
+
+%><% if(data.canonical) {
+%><!-- canonical -->
+  <link rel="canonical" href="<%= path.ab.replace('/sp','') %>">
+  <% if(data.sp) { %>
+  <link rel="alternate" media="only screen and (max-width: 640px)" href="<%= path.sp %>">
+  <% } } %><%#
+
+
+
+  %><!-- favicon -->
+  <link rel="shortcut icon" href="<%= path.img %>">
+  <link rel="apple-touch-icon-precomposed" href="<%= path.img %>">
+  <%#
+
+
+
+    <!-- prefetch -->
+    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+
+
+
+  %><!-- CSS -->
+  <link rel="stylesheet" href="<%= path.css %>main.min.css<%= data.query %>">
+  <link href="//fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet"><%#
+
+// single CSS
+// - - - - - - - - -
+  %><% if(page.singleCss) { %><% page.singleCss.forEach(function(data) {
+%><link rel="stylesheet" href="<%= path.css + data %>"><% }); } %>
+</head>

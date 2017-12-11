@@ -1,0 +1,21 @@
+.js-fadein-wrap {
+
+  @media (min-width: $pad-size) {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+}
+
+.js-fadein-item {
+  display: inline-block;
+  transform: translateZ(0);
+}
+
+.js-typo-fx {
+  display: inline-block;
+  transform: translateZ(0);
+  @media (min-width: $pad-size) {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+}

@@ -1,0 +1,407 @@
+// =========================================================
+//
+// form parts
+//
+// =========================================================
+//
+// ---------------------------------------------------------
+// input
+// ---------------------------------------------------------
+//
+.c-input {
+  display: inline-block;
+  height: 28px;
+  padding-top: calc((28px - 1em + 1px) / 2);
+  padding-bottom: calc((28px - 1em - 1px) / 2);
+  padding-left: .6em;
+  padding-right: .6em;
+  border: 1px solid #bfbfbf;
+  background-color: $white;
+  outline-color: rgba($primary-color, 0);
+  transition: box-shadow $duration-fast $easeInOutQuart;
+  //
+  //// ----- search ----- //
+  //
+  &.c-input--search {
+    box-shadow: inset 1px 4px 12px -6px rgba(0, 0, 0, 0.3);
+    background-color: $white;
+    //
+    &:focus {
+      box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0);
+    }
+    //
+    &.c-input--search-sm {
+      width: 100px;
+    }
+    &.c-input--search-md {
+      width: 170px;
+    }
+    &.c-input--search-lg {
+      width: 390px;
+    }
+  }
+  //
+  //// ----- search ----- //
+  //
+  &.c-input--detail {
+    background-color: #eeeeee;
+    //
+    //
+    &.c-input--detail--xs {
+      width: 55px;
+    }
+    //
+    &.c-input--detail--xs-l {
+      width: 70px;
+    }
+    //
+    &.c-input--detail--sm {
+      width: 110px;
+    }
+    //
+    &.c-input--detail--md {
+      width: 200px;
+    }
+    //
+    &.c-input--detail--lg {
+      width: 380px;
+    }
+    //
+    &.c-input--detail--ex {
+      width: 500px;
+    }
+  }
+  //
+  //
+  // ---------------------------------------------------------
+  // select
+  // ---------------------------------------------------------
+  //
+  // border radius
+  //
+  &.c-input--select {
+    margin-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    @include fontsize(14);
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    background-image: linear-gradient(0deg, #ecebe7 0%, #f4f3f1 60%, #ffffff 100%);
+    //
+    &.c-input--select--ex {
+      width: 200px;
+      //
+      @media all and (-ms-high-contrast: none) {
+        width: 215px;
+      }
+    }
+    //
+    &.c-input--select--lg {
+      width: 80px;
+    }
+    //
+    &.c-input--select--sm {
+      width: 60px;
+    }
+    //
+    &.c-input--select--ex-l {
+      width: 380px;
+    }
+  }
+  //
+  //
+  option {
+    padding-left: 14px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 5px;
+  }
+  //
+  //
+  &.c-input--textarea {
+    resize: vertical;
+  }
+  //
+  //
+  &.c-input--aleart {
+    outline: solid 2px red;
+  }
+  //
+  &:focus {
+    background-color: $white;
+    outline: solid 2px rgba($primary-color, 1);
+  }
+}
+
+// ---------------------------------------------------------
+// checkbox
+// ---------------------------------------------------------
+//
+.c-input_check {
+  display: none;
+  //
+  &:checked + .c-input_check-label {
+    //
+    &::before {
+      background: $white;
+      border: 1px solid $gray;
+    }
+    //
+    &::after {
+      opacity: 1;
+      transform: rotate(-45deg) scale(1);
+    }
+  }
+}
+
+.c-input_check-label {
+  position: relative;
+  display: inline-block;
+  padding-left: 25px;
+  cursor: pointer;
+  transition: .2s;
+  //
+  &.c-input_check-label--login {
+    color: $white;
+  }
+  //
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    transition: .2s;
+  }
+  //
+  &::before {
+    top: 50%;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background: #fafafa;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    transform: translateY(-50%);
+  }
+  //
+  &::after {
+    top: 50%;
+    left: 3px;
+    width: 12px;
+    height: 8px;
+    margin-top: -5px;
+    border-left: 4px solid $primary-color;
+    border-bottom: 4px solid $primary-color;
+    transform: rotate(-45deg) scale(.5);
+    opacity: 0;
+  }
+  //
+  &:hover {
+    &::before {
+      background: $white;
+    }
+  }
+  //
+  &.c-input_check-label--table {
+    top: -3px;
+  }
+  //
+  &.c-input_check-label--table-name {
+    padding-left: 0;
+    padding-right: 25px;
+    transform: scale(.95);
+    //
+    &::before {
+      top: 50%;
+      right: 0;
+      left: auto;
+      transform: translateY(-50%);
+    }
+    //
+    &::after {
+      top: 50%;
+      right: 3px;
+      left: auto;
+      width: 12px;
+      height: 8px;
+      margin-top: -5px;
+    }
+  }
+}
+
+// ---------------------------------------------------------
+// radio
+// ---------------------------------------------------------
+//
+//
+.c-input_radio {
+  display: none;
+  //
+  &:checked + .c-input_radio-label {
+    &::before {
+      background: #fff;
+      border: 1px solid $primary-color;
+    }
+    &::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.c-input_radio-label {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  cursor: pointer;
+  //
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    border-radius: 100%;
+    transform: translateY(-50%);
+    transition: .2s;
+  }
+  //
+  &::before {
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+  }
+  //
+  &::after {
+    left: calc((16px - 8px) / 2); // before width - after width / 2
+    width: 8px;
+    height: 8px;
+    margin-top: calc((16px - 8px) / 2 * -1);
+    background: $primary-color;
+    transform: scale(.1);
+    opacity: 0;
+  }
+  //
+  &:hover::before {
+    background: #fff;
+  }
+}
+
+// ---------------------------------------------------------
+// select
+// ---------------------------------------------------------
+//
+//
+.c-input_select-wrap {
+  position: relative;
+  //
+  &::after {
+    content: '';
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 3px 0 3px;
+    border-color: #bfbfbf transparent transparent transparent;
+    transform: translateY(-50%);
+    //
+    @media all and (-ms-high-contrast: none) {
+      display: none;
+    }
+  }
+}
+
+// ---------------------------------------------------------
+// alert
+// ---------------------------------------------------------
+//
+//
+.input_alert {
+  margin-top: .4em;
+  color: red;
+  @include fontsize(14);
+}
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

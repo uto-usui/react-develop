@@ -1,0 +1,87 @@
+// =========================================================
+//
+// typograph
+//
+// =========================================================//
+//
+@font-face {
+  font-family: "MyYuGothicM";
+  font-weight: normal;
+  src: local("YuGothic-Medium"),
+       local("Yu Gothic Medium"),
+       local("YuGothic-Regular");
+}
+
+@font-face {
+  font-family: "MyYuGothicM";
+  font-weight: bold;
+  src: local("YuGothic-Bold"),
+       local("Yu Gothic");
+}
+//
+// ---------------------------------------------------------
+// site base typo parameter
+// ---------------------------------------------------------
+//
+$base-fontsize: 14px !default;
+$base-fontweight: 400 !default;
+$base-line-height: 1.75 !default;
+//
+//
+// ---------------------------------------------------------
+// text color
+// ---------------------------------------------------------
+//
+$text-color: $black !default;
+$text-link-color: $primary-color !default;
+$text-primary-color: #005081 !default;
+$text-glay-color: #B7B7B7 !default;
+//
+//
+//
+// ---------------------------------------------------------
+// font set
+// ---------------------------------------------------------
+//
+$font-serif: 游明朝, YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', HG明朝E, 'MS P明朝', 'MS 明朝', Georgia, "Times New Roman", Times, serif !default;
+//
+$font-sans-serif-hiragino: -apple-system, BlinkMacSystemFont, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", MyYuGothicM, YuGothic, メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif !default;
+//
+$font-sans-serif-yu: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif !default;
+//
+$font-sans-serif: $font-sans-serif-hiragino;
+//
+$font-mono: Menlo, Monaco, Consolas, 'Courier New', monospace !default;
+//
+$font-tsukushi: 'Tsukushi A Round Gothic', '筑紫A丸ゴシック', "ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN", -apple-system, BlinkMacSystemFont, Meiryo, メイリオ !default;
+//
+$font-ie: "Helvetica", Meiryo, sans-serif !default;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

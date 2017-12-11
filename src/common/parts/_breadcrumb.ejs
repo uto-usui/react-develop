@@ -1,0 +1,9 @@
+        <div class="c-breadcrumb_wrap">
+          <ol class="c-breadcrumb<% if(page.modifier) { %> c-breadcrumb--<%= page.modifier %><% } %> f-flex f-middle">
+            <li class="c-breadcrumb_item"><a href="<%= data.domain %>" class="c-breadcrumb_target">Home</a></li><%
+              if(breadcrumb) {
+              for(var breadUrl in breadcrumb){
+              var breadName = breadcrumb[breadUrl];
+          %><li class="c-breadcrumb_item"><a href="<%= data.domain + breadUrl %>" class="c-breadcrumb_target"><%= breadName %></a></li><% } } %>
+          </ol>
+        </div>

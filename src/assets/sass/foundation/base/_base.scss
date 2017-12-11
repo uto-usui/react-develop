@@ -1,0 +1,163 @@
+/*
+#overview
+base
+
+site common base style.
+
+*/
+
+/*
+#styleguide
+link
+
+commom link style.
+
+```
+<a href="">title01</a>
+```
+
+*/
+html {
+  font-size: 14px;
+}
+
+body {
+  //@include fontsize();
+  font-family: 'Montserrat' -apple-system, BlinkMacSystemFont, "ヒラギノ角ゴ Pro W3";
+  //font-weight: $base-fontweight;
+  //color: $text-color;
+  //background-color: $white;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  //font-feature-settings: "pwid";
+  //
+  //.safari & {
+  //  font-feature-settings : "pkna"; // follow back -- ios10 safari10
+  //}
+  //.ie & {
+  //  font-family: $font-ie;
+  //}
+}
+
+a {
+  //color: $primary-color;
+  //transition: $duration-fast;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+  height: auto;
+}
+
+//hr {
+//  display: block;
+//  height: 1px;
+//  border: 0;
+//  border-top: 1px solid rgba($text-color, 1);
+//  margin: 1em auto;
+//  padding: 0;
+//}
+
+input,
+button,
+textarea,
+select {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+::selection {
+  //background: $thirdry-color;
+  //color: $text-color;
+}
+
+//
+// ----- frontnote style ----- //
+*[class^=fn-] {
+  text-align: left;
+}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

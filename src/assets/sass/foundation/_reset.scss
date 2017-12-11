@@ -1,0 +1,127 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  font-weight: normal;
+  list-style: none;
+  text-decoration: none;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1;
+  position: relative;
+  text-size-adjust: 100%;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  word-wrap: break-word;
+  font-kerning: normal;
+}
+
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+audio,
+canvas,
+video,
+progress {
+  display: inline-block;
+}
+
+canvas {
+  vertical-align: bottom;
+}
+
+br,
+hr {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+a {
+  cursor: pointer;
+}

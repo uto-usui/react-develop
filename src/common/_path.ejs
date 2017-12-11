@@ -1,0 +1,29 @@
+<%#
+//
+// ab: 自ページへの絶対パス
+// re: 自ページからルートへの相対パス
+//
+// assets: アセットフォルダへのパス
+// img: 画像フォルダへのパス
+// css: スタイルシートフォルダへのパス
+// js: スクリプトフォルダへのパス
+//
+// sp: スクラッチサイト(sp/pc)構築時のsp版url
+//
+%><%
+
+
+pagePath = function () {
+  return {
+    ab: absolutePath,
+    re: relativePath,
+    assets: relativePath + 'assets/',
+    img: relativePath + 'assets/images/',
+    css: relativePath + 'assets/css/',
+    js: relativePath + 'assets/js/',
+    sp: (data.domain + 'sp/' + absolutePath.split(data.domain)[absolutePath.split(data.domain).length -1]).replace('sp/sp/','sp/')
+  }
+};
+
+
+%>

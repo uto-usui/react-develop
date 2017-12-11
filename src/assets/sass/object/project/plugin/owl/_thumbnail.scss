@@ -1,0 +1,10 @@
+.owl-thumbs {
+  display: flex;
+}
+
+.owl-thumb-item {
+  //
+  &:not(.active) {
+    cursor: pointer;
+  }
+}

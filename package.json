@@ -1,0 +1,52 @@
+{
+  "name": "bbb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.18.0",
+    "browser-sync": "^2.13.0",
+    "del": "^2.2.0",
+    "eslint-loader": "^1.9.0",
+    "graceful-fs": "^4.1.11",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-csscomb": "^3.0.7",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-ejs": "^2.2.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-frontnote": "^2.0.1",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-pngquant": "^5.0.1",
+    "mozjpeg": "^4.1.1",
+    "webpack": "^3.8.1",
+    "webpack-stream": "^3.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "uto usui",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "eslint-plugin-react": "^7.5.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}

@@ -1,0 +1,247 @@
+// =========================================================
+//
+// flex prop class
+//
+// =========================================================
+//
+// / display
+// / justyfy
+// / align
+// / wrap
+// / column
+// / item
+// / full width
+// / align self
+//
+// / grid framework
+//
+// ---------------------------------------------------------
+// display
+// ---------------------------------------------------------
+//
+.f-flex {
+  display: flex;
+}
+
+.f-in-flex {
+  display: inline-flex;
+}
+// ---------------------------------------------------------
+// justyfy content
+// ---------------------------------------------------------
+//
+//
+.f-left {
+  justify-content: flex-start;
+}
+
+.f-right {
+  justify-content: flex-end;
+}
+
+.f-center {
+  justify-content: center;
+}
+
+.f-around {
+  justify-content: space-around;
+}
+
+.f-between {
+  justify-content: space-between;
+}
+// ---------------------------------------------------------
+// align item
+// ---------------------------------------------------------
+//
+//
+.f-top {
+  align-items: flex-start;
+}
+
+.f-bottom {
+  align-items: flex-end;
+}
+
+.f-middle {
+  align-items: center;
+}
+// ---------------------------------------------------------
+// item wrap
+// ---------------------------------------------------------
+//
+//
+.f-wrap {
+  flex-flow: wrap;
+}
+// ---------------------------------------------------------
+// column
+// ---------------------------------------------------------
+//
+//
+.f-col {
+  flex-direction: column;
+}
+// ---------------------------------------------------------
+// one thing full of width
+// ---------------------------------------------------------
+//
+//
+.f-full {
+  flex: 1 1;
+}
+// ---------------------------------------------------------
+// align self
+// ---------------------------------------------------------
+//
+//
+.f-top-s {
+  align-self: flex-start;
+}
+
+.f-bottom-s {
+  align-self: flex-end;
+}
+
+.f-middle-s {
+  align-self: center;
+}
+
+.f-stretch-s {
+  align-self: stretch;
+}
+// ---------------------------------------------------------
+// middle of the earch
+// ---------------------------------------------------------
+//
+//
+.f-middle-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// =========================================================
+//
+// flex grid framework
+//
+// =========================================================
+//
+//
+// / container ... flex item wrap
+// / item ........ flex item
+// / off ......... flex item offset
+//
+$flex-grid-columns: 12 !default;
+$flex-grid-gutter: 1rem !default;
+//
+$fg-class-row: 'f-container' !default;
+$fg-class-col: 'f-item' !default;
+$fg-class-off: 'f-off' !default;
+//
+$fg-breakpoints: ( (xs), (sm, $pad-size), (md, $pc-size), (lg, $large-size)) !default;
+//
+@function get-col-percent($column-num) {
+  @return $column-num / $flex-grid-columns * 100%;
+}
+//
+// space margin or padding
+@mixin spacing( $value, $type: margin, $orientation: vertical) {
+  @if $orientation==vertical {
+    #{ $type }-top: $value;
+    #{ $type }-bottom: $value;
+  }
+  @else {
+    #{ $type }-left: $value;
+    #{ $type }-right: $value;
+  }
+}
+
+.#{ $fg-class-row } {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @include spacing( ( -$flex-grid-gutter), margin, horizontal);
+}
+
+%#{ $fg-class-col } {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: 1px;
+  @include spacing( ( $flex-grid-gutter), padding, horizontal);
+}
+
+%#{ $fg-class-col }-flex {
+  @extend %#{ $fg-class-col };
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+
+/**
+ * Generate a set of grid column classes using a namespace
+ *
+ * .#{ $fg-class-col }-[namespace] for intelligent column division
+ * .#{ $fg-class-col }-[namespace]-[number] for a column that covers a specific number of columns (e.g. 1-12 by default)
+ * .#{ $fg-class-off }-[namespace]-[number] for pushing a col a specific number of columns (e.g. 1-11 by default)
+ */
+
+@mixin grid-base($namespace) {
+  .#{ $fg-class-col }-#{$namespace} {
+    @extend %#{ $fg-class-col }-flex;
+  }
+  @for $i from 1 through $flex-grid-columns {
+    .#{ $fg-class-col }-#{$namespace}-#{$i} {
+      @extend %#{ $fg-class-col };
+    }
+  }
+}
+
+@mixin grid-sizes($namespace) {
+  // Run the loop for as many columns as speficied
+  //////////////////////
+  @for $i from 1 through $flex-grid-columns {
+    .#{ $fg-class-col }-#{$namespace}--#{$i} {
+      flex-basis: get-col-percent($i);
+      max-width: get-col-percent($i);
+    }
+  }
+  // offset
+  //////////////////////
+  @for $i from 1 through $flex-grid-columns {
+    @if ( $i !=$flex-grid-columns) {
+      .#{ $fg-class-off }-#{$namespace}--#{$i} {
+        margin-left: get-col-percent($i);
+      }
+    }
+  }
+}
+
+
+/**
+ * Build the grid in two steps, to help minimize file size
+ * Step 1, for each namespace, create the grid-base
+ * Step 2, for each namespace, wrap the col width/offset measurements in their breakpoint media query
+ */
+
+@each $val in $fg-breakpoints {
+  $namespace: nth($val, 1);
+  @include grid-base($namespace);
+}
+
+@each $val in $fg-breakpoints {
+  @if length($val)==1 {
+    $namespace: nth($val, 1);
+    @include grid-sizes($namespace);
+  }
+  @else {
+    $namespace: nth($val, 1);
+    $size: nth($val, 2);
+    @media only screen and (min-width: #{$size}) {
+      @include grid-sizes($namespace);
+    }
+  }
+}

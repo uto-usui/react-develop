@@ -1,0 +1,19 @@
+
+      <footer class="footer<% if(page.modifier) { %> footer--<%= page.modifier %><% } %>" id="footer">
+
+
+
+      </footer>
+    </div>
+
+
+  <script src="<%= path.js %>index.min.js"></script>
+  <%
+    if(page.singleJs) {
+    page.singleJs.forEach(function(data) {
+  %>
+  <script src="<%= path.js + data %>.js"></script>
+  <% }); %><% } %>
+</body>
+
+</html>
